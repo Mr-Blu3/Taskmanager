@@ -1,0 +1,254 @@
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font: 12px/1.3 'Oleo Script', Helvetica, sans-serif;
+    color: #555555;
+    text-shadow: 4px 4px 0px 
+	-webkit-font-smoothing: antialiased;
+	background-color: #e9e9e9;
+}
+
+input {
+	border: none;
+	font-size: 18px;
+	padding: 4px;
+	color: #655557;
+}
+
+select {
+	padding: 3px;
+	font-size: 18px;
+	color: #655557;
+}
+
+.label {
+	font-size: 16px;
+}
+
+.button {
+	cursor: pointer;
+	padding: 2px 20px;
+	font-size: 16px;
+	padding: 5px;
+	border: 1px solid #eee;
+}
+
+#logo {
+	position: static;
+	top: 20px;
+}
+
+#start {
+	text-align: center;
+	position: relative;
+	top: 150px;
+}
+
+#start input {
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	height: 25px;
+	width: 220px;
+	font-size: 20px;
+	padding: 7px;
+}
+
+#start .button {
+	border: 1px solid #ccc;
+	border-radius: 4px;    
+	height: 20px;
+	font-size: 20px;
+	background-color: #737D86;
+	color: #fff;
+	float: none;
+}
+
+#welcome_board img {
+	position: relative;
+	top: 100px;
+	left: 100px;
+	width: 400px;
+}
+
+#existing_project {
+	color: #999;
+}
+
+#days {
+	width: 60px;
+	text-align: center;
+}
+
+#deadline {
+	width: 130px;
+	text-align: center;
+}
+
+#description {
+	display: block;
+	width: 99.5%;
+	height: 200px;
+	margin: 0 auto;
+	position: relative;
+	top: 2px;
+	display: none;
+}
+
+#title {
+	width: 300px;
+}
+
+#edit {
+	display: none;
+	background-color: #737D86;
+	color: #fff;
+	padding: 5px;
+	padding-bottom: 6px;
+}
+
+#header {
+	background-color: #737D86;
+	color: #fff;
+	padding: 5px;
+	position: relative;
+	text-align: center;
+	font-size: 21px;
+	height: 30px;
+}
+
+#new_item {
+	cursor: pointer;
+	float: left;
+	position: relative;
+	top: -1px;
+}
+
+#new_board {
+	cursor: pointer;
+	float: right;
+	position: relative;
+	top: -0px;
+}
+
+.project {
+	text-align: center;
+	color: #fff;
+	font-size: 13px;
+	float: left;
+	border-left: 1px solid #fff;
+	margin-top: 8px;
+	min-height: 300px;
+}
+
+.project .name {
+	color: #555;
+	font-size: 13px;
+	padding-bottom: 10px;
+	cursor: pointer;
+}
+
+.project .name .add {
+	float: right;
+	padding-right: 4px;
+	position: relative;
+	top: 2px;
+	color: #999;
+}
+
+#resources {
+	color: green;
+}
+
+.item img {
+	float: right;
+	height: 20px;
+	margin: 3px;
+}
+
+.item .item_title {
+
+}
+.item .right_pen {
+	float: right;
+	opacity: 0;
+}
+
+.item .left_pen {
+	float: left;
+	opacity: 0;
+}
+
+.deadline {
+	border-top: 3px solid #D71816;
+	border-bottom: 3px solid #D71816;
+	margin: 3px 0;
+	font-size: 11px;
+	color: #D71816;
+}
+
+.deadline img {
+	height: 8px;
+	position: relative;
+	top: 0px;
+	margin-right: 2px;
+}
+
+#container {
+	margin: 0 auto;
+	min-height: 500px;
+	width: 95%;
+}
+
+.item {
+	border-bottom: 1px solid #fff;
+	cursor: pointer;
+}
+
+.item img {
+	height: 14px;
+	opacity: 0.8;
+}
+
+.prio-1 {
+	background-color: #D71816;
+}
+.prio-2 {
+	background-color: #450D0B;
+}
+.prio-3 {
+	background-color: #655557;
+}
+.prio-4 {
+	background-color: #80A2BD;
+}
+
+#remove {
+	background-color: #D71816;
+	color: #fff;
+}
+
+.project .has-resources {
+	font-weight: bold;
+	color: #222;
+	background-color: #eee;
+}
+
+.error {
+	background-color: #ffeeee;
+}
+
+.ui-widget-header {
+	font-size: 0.8em;
+}
+
+.ui-datepicker table {
+	font-size: 0.7em;
+}
+
+.ui-datepicker td span, .ui-datepicker td a {
+	text-align: center;
+}
