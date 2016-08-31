@@ -64,9 +64,10 @@ function ensureOrder($board, $project)
     
     $items = $oDatabase->items->find(
         ['board' => $board, 'project' => $project], 
-        ['sort' => ['order' => -1]]
+        ['sort' => ['order' => 1]]
     );
-    
+    var_dump($items);
+    die;
     foreach ($items as $currentItem) {
         $aBatch[] = [
             'updateOne' => [
