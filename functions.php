@@ -34,13 +34,14 @@ function getDb()
 function save($board, $item)
 {
     $oDatabase = getDb();
-    $existingItem = getItem($board, $item['_id']);
     
     $oDatabase->items->updateOne(
         ['_id' => $item['_id']], 
         ['$set' => $item],
         ['upsert' => true]
     );
+    
+    $existingItem = getItem($board, $item['_id']);
 
     if (!empty($existingItem) AND $existingItem['project'] != $item['project']) {
         $oDatabase->items->updateOne(
@@ -57,10 +58,15 @@ function save($board, $item)
 
 function ensureOrder($board, $project)
 {
-    $oDatabase = getDb();
     $i = 1;
     $aBatch = [];
-    $items = $oDatabase->items->find(['board' => $board, 'project' => $project], ['sort' => ['order' => 1]]);
+    $oDatabase = getDb();
+    
+    $items = $oDatabase->items->find(
+        ['board' => $board, 'project' => $project], 
+        ['sort' => ['order' => 1]]
+    );
+    
     foreach ($items as $currentItem) {
         $aBatch[] = [
             'updateOne' => [
