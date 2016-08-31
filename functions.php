@@ -45,7 +45,7 @@ function save($board, $item)
     
     if ($item['existing_project'] != 'New') {
        
-       $oDatabase->items->updateOne([
+       $oDatabase->items->update([
                 'board' => $item['board'],
                 'project' => $item['existing_project']
             ],[
