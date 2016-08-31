@@ -152,7 +152,7 @@ function loadItems() {
 			var projectString = '<div style="width: ' + Math.round(projectWidth) + 'px;" class="project" data-project="' + project + '"><div class="name ' + (resource !== -1 ? 'has-resources' : '') + '">' + project.replace('(', '').replace(')', '%') + ' <span class="add">+</span></div><div class="item-list">';
 			$.each(items, function (order, item) {
 				if (typeof item != 'undefined') {
-					projectString += '<div id="' + item._id + '" class="item prio-' + item.prio + '" style="width: 100%;height:' + getHeight(item.days) + 'px"><img class="left_pen" src="#" /><span class="item_title">' + item.title + '</span><img class="right_pen" src="/images/edit.png" /></div>';
+					projectString += '<div id="' + item._id + '" class="item prio-' + item.prio + '" style="width: 100%;height:' + getHeight(item.days) + 'px"><img class="left_pen" src="#" /><span class="item_title">' + item.title + '</span><img class="right_pen" src="#" /></div>';
 					if (item.deadline)
 						projectString += '<div class="deadline"><img src="#" />' + item.deadline + '</div>';
 				}
