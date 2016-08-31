@@ -58,13 +58,13 @@ function save($board, $item)
 
 function ensureOrder($board, $project)
 {
-    $i = 1;
+    $i = 0;
     $aBatch = [];
     $oDatabase = getDb();
     
     $items = $oDatabase->items->find(
         ['board' => $board, 'project' => $project], 
-        ['sort' => ['order' => 1]]
+        ['sort' => ['order' => -1]]
     );
     
     foreach ($items as $currentItem) {
