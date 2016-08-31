@@ -42,14 +42,12 @@ function save($board, $item)
     );
 
     $existingItem = getItem($board, $item['_id']);
-    var_dump($existingItem);
-    die;
-    if (!empty($existingItem) AND $existingItem['project'] != $item['project']) {
-        $oDatabase->items->updateOne(
-            array('board' => $existingItem['board'], 'project' => $existingItem['project']),
-            array('$set' => array('project' => $item['project']))
-        );
-    }
+
+    $oDatabase->items->updateOne(
+        array('board' => $existingItem['board'], 'project' => $existingItem['project']),
+        array('$set' => array('project' => $item['project']))
+    );
+
     ensureOrder($board, $item['project']);
 }
 
