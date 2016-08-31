@@ -183,8 +183,8 @@ select {
 }
 
 .deadline {
-	border-top: 3px solid #D71816;
-	border-bottom: 3px solid #D71816;
+	border-top: 3px solid green;
+	border-bottom: 3px solid green;
 	margin: 3px 0;
 	font-size: 11px;
 	color: #D71816;
@@ -214,16 +214,16 @@ select {
 }
 
 .prio-1 {
-	background-color: #D71816;
+	background-color: orange;
 }
 .prio-2 {
-	background-color: #450D0B;
+	background-color: purple;
 }
 .prio-3 {
 	background-color: #655557;
 }
 .prio-4 {
-	background-color: #80A2BD;
+	background-color: blue;
 }
 
 #remove {

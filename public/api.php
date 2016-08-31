@@ -24,11 +24,11 @@ switch($_REQUEST['service']) {
 			'_id' => (@$_REQUEST['id']? (String) $_REQUEST['id'] : md5(rand(1,100000) . date("ymdhis"))),
 			'project' => (String) @$_REQUEST['project'],
 			'existing_project' => (String) @$_REQUEST['existing_project'], 
-			'board' => preg_replace("/[^ \-\w\(\)]+/", "", $_REQUEST['board']),
+			'board' => (String) preg_replace("/[^ \-\w\(\)]+/", "", $_REQUEST['board']),
 			'title' => (String) $_REQUEST['title'],
 			'prio' => (int) $_REQUEST['prio'],
 			'days' => (int) $_REQUEST['days'],
-			'deadline' => preg_replace("/[^ \-\d]+/", "", $_REQUEST['deadline']),
+			'deadline' => (String) preg_replace("/[^ \-\d]+/", "", $_REQUEST['deadline']),
 		);
 		save($item['board'], $item);
 		break;
