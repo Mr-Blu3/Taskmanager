@@ -43,10 +43,11 @@ function save($board, $item)
 
     $existingItem = getItem($board, $item['_id']);
 
-    $oDatabase->items->updateOne(
-        array('board' => $existingItem['board'], 'project' => $existingItem['project']),
-        array('$set' => array('project' => $item['project']))
-    );
+    if ($existingItem['project'] != $item['project']) {
+        $oDatabase->items->updateOne(
+            array('board' => $existingItem['board'], 'project' => $existingItem['project']),
+            array('$set' => array('project' => $item['project']))
+        );
 
     ensureOrder($board, $item['project']);
 }

@@ -233,7 +233,7 @@ function save() {
 
 		apiCall('save-item', item, function () {
 			cleanForm();
-			//loadItems();
+			loadItems();
 		});
 	}
 }
