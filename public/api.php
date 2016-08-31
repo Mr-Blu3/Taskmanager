@@ -23,6 +23,7 @@ switch($_REQUEST['service']) {
 		$item = array(
 			'_id' => (@$_REQUEST['id']? (String) $_REQUEST['id'] : md5(rand(1,100000) . date("ymdhis"))),
 			'project' => (String) @$_REQUEST['project'],
+			'existing_project' => (String) @$_REQUEST['existing_project'], 
 			'board' => preg_replace("/[^ \-\w\(\)]+/", "", $_REQUEST['board']),
 			'title' => (String) $_REQUEST['title'],
 			'prio' => (int) $_REQUEST['prio'],

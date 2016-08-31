@@ -40,8 +40,20 @@ function save($board, $item)
         ['$set' => $item],
         ['upsert' => true]
     );
-
+    
     $existingItem = getItem($board, $item['_id']);
+    
+    if ($item['existing_project'] != 'New') {
+       
+       $oDatabase->items->updateOne([
+                'board' => $item['board'],
+                'project' => $item['existing_project']
+            ],[
+            '$set' => ['project' => $item['project']]]
+        );
+
+    }
+
 
     if ($existingItem['project'] != $item['project']) {
         $oDatabase->items->updateOne(
@@ -149,7 +161,7 @@ function moveItem($board, $project, $sChangedId, $aToIds, $fromIds)
             ]
         ];
     }
-    
+
     for ($i=0; $i < count($fromIds); $i++) { 
         $items = $oDatabase->items->find(
             ['board' => $board, 'project' => $project, '_id' => $fromIds[$i]], 

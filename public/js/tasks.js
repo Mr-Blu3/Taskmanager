@@ -221,6 +221,7 @@ function save() {
 		var item = {
 			id: $("#edit #id").val(),
 			project: $("#edit #project").val() ? $("#edit #project").val() : 'Other',
+			existing_project: $("#edit #existing_project").val() ? $("#edit #existing_project").val() : 'New',
 			title: $("#edit #title").val(),
 			prio: $("#edit #prio").val(),
 			days: $("#edit #days").val() ? $("#edit #days").val() : 1,
