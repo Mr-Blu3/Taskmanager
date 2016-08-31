@@ -48,7 +48,7 @@ function save($board, $item)
             array('board' => $existingItem['board'], 'project' => $existingItem['project']),
             array('$set' => array('project' => $item['project']))
         );
-
+    }
     ensureOrder($board, $item['project']);
 }
 
