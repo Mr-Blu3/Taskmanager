@@ -131,7 +131,7 @@ function cleanForm() {
 	$("#edit #deadline").val('');
 	$("#edit #description").val('');
 	$("#edit #save").hide();
-	$("#edit #cancel").hide();
+	$("#edit #cancel").show();
 	$("#edit #remove").hide();
 	$("#edit #add").show();
 	$("#edit #existing_project").show();
