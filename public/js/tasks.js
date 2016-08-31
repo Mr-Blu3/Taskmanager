@@ -41,6 +41,7 @@ $(document).ready(function () {
 		cleanForm();
 		$("#header").hide();
 		$("#edit").show();
+		$("#cancel").show();
 		$("#edit #existing_project, #edit #project").val($(this).closest(".project").attr('data-project'));
 		$("#edit #title").focus();
 	});
