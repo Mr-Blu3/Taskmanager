@@ -75,12 +75,14 @@ $(document).ready(function () {
 	});
 
 	$("#cancel").click(function () {
-		cleanForm();
+		$("#header").show();
+		$("#edit").hide();
 	});
 
 	$("#new_item").click(function () {
 		$("#header").hide();
 		$("#edit").show();
+		$("#cancel").show();
 		$("#edit #existing_project").val('');
 		$("#edit #title").focus();
 	});
