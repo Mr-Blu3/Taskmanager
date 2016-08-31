@@ -45,10 +45,14 @@ function save($board, $item)
 
     if ($existingItem['project'] != $item['project']) {
         $oDatabase->items->updateOne(
-            array('board' => $existingItem['board'], 'project' => $existingItem['project']),
+            array(
+                'board' => $existingItem['board'],
+                'project' => $existingItem['project']
+            ),
             array('$set' => array('project' => $item['project']))
         );
     }
+
     ensureOrder($board, $item['project']);
 }
 
@@ -117,13 +121,15 @@ function getItems($board)
 function moveItem($board, $project, $sChangedId, $aToIds, $fromIds)
 {
     $oDatabase = getDb();
+
     if (is_array($fromIds)) {
         $fromIds = array_filter($fromIds);
     } else {
         $fromIds = array();
     }
+    
     $updates = array();
-    $aBatch = [];$aBatch2= [];$aBatch3= [];
+    $aBatch = [];
     $y = 1;
     
     for ($i=0; $i < count($aToIds); $i++) { 
@@ -143,13 +149,14 @@ function moveItem($board, $project, $sChangedId, $aToIds, $fromIds)
             ]
         ];
     }
+    
     for ($i=0; $i < count($fromIds); $i++) { 
         $items = $oDatabase->items->find(
             ['board' => $board, 'project' => $project, '_id' => $fromIds[$i]], 
             ['sort' => ['order' => 1]]
         );
         
-        $aBatch2[] = [
+        $aBatch[] = [
             'updateOne' => [
                 ['board' => $board, '_id' => $fromIds[$i]],
                 [
@@ -160,9 +167,8 @@ function moveItem($board, $project, $sChangedId, $aToIds, $fromIds)
             ]
         ];
     }
-    $oDatabase->items->bulkWrite($aBatch2);
     
-    $aBatch3[] = [
+    $aBatch[] = [
             'updateOne' => [
                 ['board' => $board, '_id' => $sChangedId],
                 [
@@ -172,7 +178,7 @@ function moveItem($board, $project, $sChangedId, $aToIds, $fromIds)
                 ]
             ]
         ];
-    $oDatabase->items->bulkWrite($aBatch3);
+    $oDatabase->items->bulkWrite($aBatch);
 }
 
 /**
@@ -183,7 +189,10 @@ function moveItem($board, $project, $sChangedId, $aToIds, $fromIds)
  */
 function getProjectItems($project, $board)
 {
-    return getDb()->items->find(['project' => $project, 'board' => $board], ['sort' => ['order' => 1]]);
+    return getDb()->items->find(
+        ['project' => $project, 'board' => $board], 
+        ['sort' => ['order' => 1]
+    ]);
 }
 
 /**
