@@ -91,16 +91,20 @@ function ensureOrder($board, $project)
 
 function getItems($board)
 {
-    $items = getDb()->items->find(['board' => $board]);
-    $build = array();
+    $items = getDb()->items->find(
+        ['board' => $board],
+        ['sort' => ['order' => 1]]
+    );
+    $build = [];
+
     foreach ($items as $item) {
         if (!isset($build[$item['project']]))
-            $build[$item['project']] = array();
+            $build[$item['project']] = [];
 
         $build[$item['project']][] = $item;
     }
 
-    ksort($build);
+    asort($build);
 
     return $build;
 }
