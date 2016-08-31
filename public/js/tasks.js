@@ -59,6 +59,7 @@ $(document).ready(function () {
 
 	$("#add, #save").click(function () {
 		save();
+		$("#edit #cancel").show();
 	});
 
 	$("input#project, input#title, input#days").keyup(function (e) {
@@ -69,6 +70,7 @@ $(document).ready(function () {
 	$("#remove").click(function () {
 		if (confirm("Do you still want to remove this item?"))
 			removeItem($("#edit #id").val());
+		$("#edit #cancel").show();	
 	});
 
 	$("#existing_project").change(function () {
@@ -251,7 +253,7 @@ function removeItem(id) {
 
 function moveItem(item, toElement, fromElement) {
 	var toIds = $(toElement).sortable("toArray");
-	console.log(toElement, fromElement);
+
 	if(fromElement)
 		var fromIds = (fromElement)? $(fromElement).sortable("toArray") : [];
 
