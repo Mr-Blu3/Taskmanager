@@ -58,7 +58,7 @@ function save($board, $item)
 
 function ensureOrder($board, $project)
 {
-    $i = 0;
+    $i = 1;
     $aBatch = [];
     $oDatabase = getDb();
     
@@ -66,8 +66,7 @@ function ensureOrder($board, $project)
         ['board' => $board, 'project' => $project], 
         ['sort' => ['order' => 1]]
     );
-    var_dump($items);
-    die;
+
     foreach ($items as $currentItem) {
         $aBatch[] = [
             'updateOne' => [
