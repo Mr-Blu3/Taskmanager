@@ -150,10 +150,8 @@ function loadItems() {
 		$.each(response, function (project, items) {
 			isItem = true;
 			var resource = project.search(/\([0-9\.]+\)/i);
-			console.log(resource);
-			if (resource == -1)
+			if (resource !== -1)
 				usedResource += parseFloat(project.substring(resource).replace('(', '').replace(')', ''));
-				console.log(usedResource);
 			$("#existing_project").append('<option value="' + project + '">' + project + '</option>');
 			var projectString = '<div style="width: ' + Math.round(projectWidth) + 'px;" class="project" data-project="' + project + '"><div class="name ' + (resource !== -1 ? 'has-resources' : '') + '">' + project.replace('(', '').replace(')', '%') + ' <span class="add">+</span></div><div class="item-list">';
 			$.each(items, function (order, item) {
@@ -177,8 +175,6 @@ function loadItems() {
 		} else {
 			$("#container").html($("#welcome_container").html());
 		}
-
-	$("#resources").html(usedResource);
 	});
 }
 

@@ -33,7 +33,6 @@ $root = 'http://localhost/regular/Taskmanager/public';
 			<div id="header">
 				<span id="new_item" class="button">Add New Item</span>
 				<span id="logo">Tasks</span>
-				<span id="resources"></span>
 				<span id="new_board"> 
 					<span id="new_board_start" class="button">Create New Board</span>
 					<span  style="display: none;" id="new_board_continue">
