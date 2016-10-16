@@ -7,7 +7,7 @@ if ($board) {
 	$title = 'Taskmanager';
 }
 
-$root = 'http://localhost/regular/Taskmanager/public';	
+$root = 'http://138.68.143.251/Taskmanager/public';	
 ?>
 <!DOCTYPE html>
 <html>
