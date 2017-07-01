@@ -9,6 +9,7 @@ if ($board) {
 
 $root = 'http://138.68.143.251/Taskmanager/public';	
 ?>
+
 <!DOCTYPE html>
 <html>
 	<head>
